@@ -8,8 +8,8 @@ done
 echo "There are ${#dirs[@]} dirs in the current path"
 for((i=1;i<=${#dirs[@]};i++))
 do
-  echo "pulling from ./${dirs[i]}"
   cd ./${dirs[i]}
-  git pull 
+  git pull > /dev/null
   cd ../
+  echo "Pulling from ./${dirs[i]} ✨"
 done

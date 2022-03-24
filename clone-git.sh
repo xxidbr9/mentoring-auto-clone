@@ -5,9 +5,9 @@ Green='\033[0;32m'        # Green
 Blue='\033[0;34m'         # Blue
 
 input="./urls.txt"
-while IFS= read -r line
+while IFS= read -r line || [ -n "$line" ]
 do
-  echo -e "${Blue}Cloning from :${Color_Off} $line !!!"
-  git clone $line
-  echo -e "${Green}Success Cloning : ${Color_Off} ${line}\n"
+  echo -e "${Blue}Cloning repo from :${Color_Off} $line"
+  git clone $line > /dev/null
+  echo -e "${Green}Success cloning   : ${Color_Off} ${line}\n"
 done < "$input"
